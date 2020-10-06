@@ -181,10 +181,10 @@
             console.log(moment().hour());
             console.log((element.getAttribute("data-time")));
 
-            if (parseInt(element.getAttribute("data-time")) < moment().hour()) {
+            if (parseInt(element.getAttribute("data-time")) < 11) {
                 element.classList.add("past");
             }
-            else if (parseInt(element.getAttribute("data-time")) > moment().hour()) {
+            else if (parseInt(element.getAttribute("data-time")) > 11) {
                 element.classList.add("future");
             } else {
                 element.classList.add("present");
