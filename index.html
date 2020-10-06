@@ -172,9 +172,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script>
-        //$("#currentDay").text("Today is" + moment().day() + "");
+
+        // displays the current date on the page
         $("#currentDay").text("Today is " + moment().format("dddd, MMMM Do YYYY"));
 
+        //Iterates through each event div and determines if it is in the past, present, or future and formats accordingly
         $(".event").each(function (index, element) {
             console.log(moment().hour());
             console.log((element.getAttribute("data-time")));
@@ -189,6 +191,8 @@
             }
         })
 
+
+        // When a row's save button is clicked, the memo is saved in local storage
         $(".saveBtn").on("click", function (event) {
             event.preventDefault();
             $(".memo").each(function (index, element) {
@@ -199,6 +203,7 @@
             })
         })
 
+        //Fills all memos with any previously saved memos as long as they were saved on the same day
         function fetchMemos() {
             if (moment().format("dddd, MMMM Do YYYY") != localStorage.getItem("currentDate")) {
                 localStorage.clear();
